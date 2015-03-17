@@ -5,6 +5,7 @@
  */
 package main;
 
+import controlador.ControladorPrincipal;
 import vista.VistaPrincipal;
 
 /**
@@ -14,11 +15,13 @@ import vista.VistaPrincipal;
 public class Main {
     
     static VistaPrincipal  vista;
+    static ControladorPrincipal controlador;
     
-    public static void main(String args[]) {    
+    public static void main(String args[]) {   
         
         java.awt.EventQueue.invokeLater(() -> {
             vista = new VistaPrincipal();
+            controlador = new ControladorPrincipal(vista);
             vista.setVisible(true);
         });  
         

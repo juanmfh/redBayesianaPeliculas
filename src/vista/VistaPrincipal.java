@@ -225,7 +225,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(aplicar)
                     .addComponent(limpiar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -264,7 +264,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ratingActionPerformed
 
     private void aplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aplicarActionPerformed
- 
+        addRowLog(getYear());
     }//GEN-LAST:event_aplicarActionPerformed
 
     
@@ -282,7 +282,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             if(year.getSelectedIndex()==0){
                 return "";
             }else{
-                return year.getSelectedItem().toString();
+                return "State" + (year.getSelectedIndex() - 1);
             }
         } catch (NullPointerException e) {
             return "";
@@ -294,7 +294,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             if(lenght.getSelectedIndex()==0){
                 return "";
             }else{
-                return lenght.getSelectedItem().toString();
+                return "State" + (lenght.getSelectedIndex() -1);
             }
         } catch (NullPointerException e) {
             return "";
@@ -306,7 +306,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             if(budget.getSelectedIndex()==0){
                 return "";
             }else{
-                return budget.getSelectedItem().toString();
+                return "State" + (budget.getSelectedIndex() -1);
             }
         } catch (NullPointerException e) {
             return "";
@@ -318,7 +318,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             if(rating.getSelectedIndex()==0){
                 return "";
             }else{
-                return rating.getSelectedItem().toString();
+                return "State" + (rating.getSelectedIndex() -1);
             }
         } catch (NullPointerException e) {
             return "";
@@ -331,8 +331,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
         }else {
             return genres.getSelectedValuesList();
         }
-        
     }
+    
+    
 
     public void addRowResults(Object[] o) {
         ((DefaultTableModel) this.results.getModel()).addRow(o);
