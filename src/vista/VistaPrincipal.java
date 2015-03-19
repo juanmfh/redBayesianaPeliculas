@@ -60,7 +60,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jLabel2.setText("Year");
 
-        year.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "<= 1920", "1921 - 1940", "1941 - 1960", "1961 - 1980", "1981 - 2000", "> 2000" }));
+        year.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "1992 - 1993", "1994 - 1995", "1996 - 1997", "1998 - 1999", "2000 - 2001", "2002 - 2003", "2004 - 2005" }));
         year.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 yearActionPerformed(evt);
@@ -78,7 +78,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jLabel4.setText("Budget");
 
-        budget.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "< 1m", "1m-5m", "5m-10m", ">10m" }));
+        budget.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "1000001 - 10000000 $", "10001 - 100000 $", ">10000000 $", "NA" }));
 
         jLabel5.setText("Rating");
 
@@ -177,7 +177,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                                             .addComponent(budget, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(rating, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
