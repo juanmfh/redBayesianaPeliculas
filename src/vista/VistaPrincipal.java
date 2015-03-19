@@ -82,7 +82,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jLabel5.setText("Rating");
 
-        rating.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        rating.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "8", "9", "10" }));
         rating.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ratingActionPerformed(evt);
@@ -297,7 +297,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     public String getLenght() {
         try {
-            if(lenght.getSelectedIndex()==0){
+            if(lenght.getSelectedIndex()==0 || lenght.getSelectedIndex()==-1){
                 return "";
             }else{
                 return "State" + (lenght.getSelectedIndex() -1);
