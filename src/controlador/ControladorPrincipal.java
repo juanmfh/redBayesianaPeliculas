@@ -2,7 +2,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import vista.VistaPrincipal;
 
@@ -20,7 +20,7 @@ public class ControladorPrincipal implements ActionListener {
     
     public Map<String, Double> calcularProbabilidad(){
         // Datos de prueba (Sustituir por llamada al modelo)
-        Map<String, Double> map = new HashMap();
+        Map<String, Double> map = new LinkedHashMap();
         map.put("El señor de los anillos", 0.8);
         map.put("Matrix", 0.7);
         map.put("Seven", 0.6);
@@ -56,7 +56,7 @@ public class ControladorPrincipal implements ActionListener {
                         vista.addRowResults(new Object[]{row.getKey(), row.getValue()});
                     });
                     if(results.size()>0){
-                        vista.addRowLog("La película recomendada es " + results.entrySet().iterator().next().getKey() ); 
+                        vista.addRowLog("La película recomendada es: " + results.entrySet().iterator().next().getKey() ); 
                     }
                 }else{
                     vista.addRowLog("No se ha encontrado ningún resultado");
