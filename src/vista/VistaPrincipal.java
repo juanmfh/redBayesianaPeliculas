@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vista;
 
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -14,6 +10,9 @@ import javax.swing.table.DefaultTableModel;
  * @author juan
  */
 public class VistaPrincipal extends javax.swing.JFrame {
+    
+    public final  String APPLY = "apply";
+    public final  String CLEAR = "clear";
 
     /**
      * Creates new form VistaPrincipal
@@ -247,16 +246,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_lenghtActionPerformed
 
     private void limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarActionPerformed
-        // Limpia el formulario
-        year.setSelectedIndex(-1);
-        lenght.setSelectedIndex(-1);
-        budget.setSelectedIndex(-1);
-        rating.setSelectedIndex(-1);
-        genres.clearSelection();
-        // Limpia la tabla de resultados
-        clearResults();
-        // Limpia el log
-        clearLog();
+        
     }//GEN-LAST:event_limpiarActionPerformed
 
     private void ratingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ratingActionPerformed
@@ -264,9 +254,25 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ratingActionPerformed
 
     private void aplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aplicarActionPerformed
-        addRowLog(getYear());
+        //calcularProbabilidad();
     }//GEN-LAST:event_aplicarActionPerformed
 
+    
+    public void setControlador(ActionListener al){
+        aplicar.addActionListener(al);
+        aplicar.setActionCommand(APPLY);
+        
+        limpiar.addActionListener(al);
+        limpiar.setActionCommand(CLEAR);
+    }
+    
+    public void clearForm(){
+        year.setSelectedIndex(-1);
+        lenght.setSelectedIndex(-1);
+        budget.setSelectedIndex(-1);
+        rating.setSelectedIndex(-1);
+        genres.clearSelection();
+    }
     
     public void clearResults() {
         DefaultTableModel modelo = (DefaultTableModel) results.getModel();

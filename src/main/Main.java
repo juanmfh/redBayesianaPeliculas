@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package main;
 
 import controlador.ControladorPrincipal;
@@ -22,6 +17,7 @@ public class Main {
         java.awt.EventQueue.invokeLater(() -> {
             vista = new VistaPrincipal();
             controlador = new ControladorPrincipal(vista);
+            vista.setControlador(controlador);
             vista.setVisible(true);
         });  
         
