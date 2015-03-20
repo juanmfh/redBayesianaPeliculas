@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
+import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -13,7 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import smile.Network;
+import smile.SMILEException;
 
 /**
  *
@@ -38,58 +37,59 @@ public class RedBayesiana {
         titles.put("State9", "Chocolat");
         titles.put("State10", "Cowboy Bebop: Tengoku no tobira");
         titles.put("State11", "Dark City");
-        titles.put("State12", "El Diablo nunca duerme");
-        titles.put("State13", "Die Hard");
-        titles.put("State14", "Dragon Ball Z 9: Ginga girigiri!! Butchigiri no sugoi yatsu");
-        titles.put("State15", "Dreamer: The Movie");
-        titles.put("State16", "Entre todas las mujeres");
-        titles.put("State17", "Fight Club");
-        titles.put("State18", "Fuga de cerebros");
-        titles.put("State19", "Gladiator");
-        titles.put("State20", "Harry Potter and the Chamber of Secrets");
-        titles.put("State21", "Harry Potter and the Prisoner of Azkaban");
-        titles.put("State22", "Harry Potter and the Sorcerer's Stone");
-        titles.put("State23", "Harry un ami qui vous veut du bien");
-        titles.put("State24", "I Robot");
-        titles.put("State25", "Ice Age");
-        titles.put("State26", "Identity");
-        titles.put("State27", "The Incredibles");
+        titles.put("State12", "Die Hard");
+        titles.put("State13", "Dragon Ball Z 9: Ginga girigiri!! Butchigiri no sugoi yatsu");
+        titles.put("State14", "Dreamer: The Movie");
+        titles.put("State15", "El Diablo nunca duerme");
+        titles.put("State16", "El Maquinista");
+        titles.put("State17", "Entre todas las mujeres");
+        titles.put("State18", "Fight Club");
+        titles.put("State19", "Fuga de cerebros");
+        titles.put("State20", "Gladiator");
+        titles.put("State21", "Harry Potter and the Chamber of Secrets");
+        titles.put("State22", "Harry Potter and the Prisoner of Azkaban");
+        titles.put("State23", "Harry Potter and the Sorcerer's Stone");
+        titles.put("State24", "Harry un ami qui vous veut du bien");
+        titles.put("State25", "I Robot");
+        titles.put("State26", "Ice Age");
+        titles.put("State27", "Identity");
         titles.put("State28", "Initial D: Third Stage");
-        titles.put("State29", "The Island");
-        titles.put("State30", "Jurassic Park");
-        titles.put("State31", "Kill Bill: Vol. 1");
-        titles.put("State32", "Kill Bill: Vol. 2");
-        titles.put("State33", "Lilo & Stitch");
-        titles.put("State34", "The Lord of the Rings: The Fellowship of the Ring");
-        titles.put("State35", "The Lord of the Rings: The Return of the King");
-        titles.put("State36", "The Lord of the Rings: The Two Towers");
-        titles.put("State37", "El Maquinista");
-        titles.put("State38", "The Matrix Reloaded");
-        titles.put("State39", "The Matrix");
-        titles.put("State40", "Mulan");
-        titles.put("State41", "Mystic River");
-        titles.put("State42", "Pirates of the Caribbean: The Curse of the Black Pearl");
-        titles.put("State43", "Shrek");
-        titles.put("State44", "Shrek 2");
-        titles.put("State45", "Sin City");
-        titles.put("State46", "Spider-Man");
-        titles.put("State47", "Spider-Man 2");
-        titles.put("State48", "Star Trek the Experience: The Klingon Encounter");
-        titles.put("State49", "Star Trek: First Contact");
-        titles.put("State50", "Star Trek: New Voyages");
-        titles.put("State51", "Star Wars: Episode II - Attack of the Clones");
-        titles.put("State52", "Tarzan");
+        titles.put("State29", "Jurassic Park");
+        titles.put("State30", "Kill Bill: Vol. 1");
+        titles.put("State31", "Kill Bill: Vol. 2");
+        titles.put("State32", "Lilo & Stitch"); 
+        titles.put("State33", "Mulan");
+        titles.put("State34", "Mystic River");
+        titles.put("State35", "Pirates of the Caribbean: The Curse of the Black Pearl");
+        titles.put("State36", "Shrek");
+        titles.put("State37", "Shrek 2");
+        titles.put("State38", "Sin City");
+        titles.put("State39", "Spider-Man");
+        titles.put("State40", "Spider-Man 2");
+        titles.put("State41", "Star Trek the Experience: The Klingon Encounter");
+        titles.put("State42", "Star Trek: First Contact");
+        titles.put("State43", "Star Trek: New Voyages");
+        titles.put("State44", "Star Wars: Episode II - Attack of the Clones");
+        titles.put("State45", "Tarzan");
+        titles.put("State46", "The Incredibles");
+        titles.put("State47", "The Island");
+        titles.put("State48", "The Lord of the Rings: The Fellowship of the Ring");
+        titles.put("State49", "The Lord of the Rings: The Return of the King");
+        titles.put("State50", "The Lord of the Rings: The Two Towers");
+        titles.put("State51", "The Matrix");
+        titles.put("State52", "The Matrix Reloaded"); 
         titles.put("State53", "Toy Story");
         titles.put("State54", "Toy Story 2");
         titles.put("State55", "X-Men");
     }
 
-    public Map<Double, String> calcularProbabilidad(String year, String length, String budget, String rating, List<String> genres) {
+    public Map<Double, String> calcularProbabilidad(String year, String length, String budget, String rating, List<String> genres) throws SMILEException {
         
         Map<Double, String> res = new LinkedHashMap();
         Network net = new Network();
         
-        net.readFile("series-red-rev.xdsl");
+        
+        net.readFile(System.getProperty("user.dir") + "/series-red-rev.xdsl");
         
         // Updating the network:
         net.updateBeliefs();

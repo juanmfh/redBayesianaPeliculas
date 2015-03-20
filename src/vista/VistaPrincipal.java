@@ -78,11 +78,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jLabel4.setText("Budget");
 
-        budget.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "1000001 - 10000000 $", "10001 - 100000 $", ">10000000 $", "NA" }));
+        budget.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "10001 - 100000 $", "1000001 - 10000000 $", ">10000000 $", "NA" }));
 
         jLabel5.setText("Rating");
 
-        rating.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "8", "9", "10" }));
+        rating.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "7", "8", "9" }));
         rating.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ratingActionPerformed(evt);
@@ -285,7 +285,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     public String getYear() {
         try {
-            if(year.getSelectedIndex()==0){
+            if(year.getSelectedIndex()==0 || lenght.getSelectedIndex()==-1){
                 return "";
             }else{
                 return "State" + (year.getSelectedIndex() - 1);
@@ -309,7 +309,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     public String getBudget() {
         try {
-            if(budget.getSelectedIndex()==0){
+            if(budget.getSelectedIndex()==0 || lenght.getSelectedIndex()==-1){
                 return "";
             }else{
                 return "State" + (budget.getSelectedIndex() -1);
@@ -321,10 +321,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     public String getRating() {
         try {
-            if(rating.getSelectedIndex()==0){
+            if(rating.getSelectedIndex()==0 || lenght.getSelectedIndex()==-1){
                 return "";
             }else{
-                return "State" + (rating.getSelectedIndex() -1);
+                return "r" + (rating.getSelectedIndex() + 6);
             }
         } catch (NullPointerException e) {
             return "";
